@@ -1,0 +1,83 @@
+<div id=D__ID>
+    <div id=panel__ID>
+        <div id=dirgram__ID>
+            VmInclude:__CURRENT_PATH__panel.svg
+        </div>
+    </div>
+    <style>
+        #dirgram__ID g[vm="1"]:hover text{
+            fill:red!Important;
+            cursor:pointer;
+        }
+    </style>
+    <script>
+        function F__ID(){
+            //--------------------------------------------------------
+            VmInclude:__CURRENT_PATH__panel.query.js
+            //--------------------------------------------------------
+            var m=$vm.module_list['__MODULE__'];
+            var p=m.prefix; if(p==undefined) p="";
+            //--------------------------------------------------------
+            var modules=[
+                "CMS","https://rt.woolcock.org.au/cms2/login.aspx",
+                "Monthly average scoring and reporting days in 2021","SQL|6",
+                "Sleep Study","SQL|14",
+                "Patient","SQL|15",
+                "Sleep Staff","SQL|16",
+                "Staff Roster","SQL|17",
+                "Sleep study report done but not sent","SQL|8",
+                "Number of sleep study by year and month","SQL|1",
+                "Number of sleep study by year","SQL|18"
+            ]
+            //--------------------------------------------------------
+            $('#dirgram__ID svg').removeAttr("content");
+            $('#dirgram__ID svg').removeAttr("width");
+            $('#dirgram__ID svg').removeAttr("height");
+            $('#dirgram__ID g').each(function(){
+                var t=$(this).text();
+                if(modules.indexOf(t)!=-1){
+                    $(this).attr("vm",1);
+                    $(this).attr("pointer-events","all");
+                }
+            });
+            //--------------------------------------------------------
+            $('#dirgram__ID g[vm=1]').on('click',function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                var t=$(this).text();
+                var i=modules.indexOf(t);
+                var para=modules[i+1]
+                if(i>0){
+                    if(para.substr(0,4)=="http") window.open(modules[i]);
+                    else if(para.substr(0,3)=="SQL") $vm.sqlserver_query( parseInt(para.split('|').pop()),function(){ alert(
+`
+The connection to the proxy server is failed.
+It could be:
+1. the server is not running
+2. your computer is not inside Uni network                        
+`
+                        ); } );
+                    else $vm.show_module(p+para,{}); 
+                }
+            });
+            //--------------------------------------------------------
+            $('#panel__ID').css('min-height',$vm.min_height);
+            //--------------------------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            background-color: #fff;
+        }
+        #dirgram__ID{
+            min-width:1000px;
+            padding:50px 300px;
+        }
+        @media screen and (max-width: 1200px) {
+            #dirgram__ID{
+                padding:10px 10px;
+            }
+        }
+    </style>
+</div>
