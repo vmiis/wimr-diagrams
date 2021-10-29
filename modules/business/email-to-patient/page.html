@@ -15,7 +15,7 @@
             //--------------------------------------------------------
             $('#D__ID').on('load',function(){
                 $vm.request({cmd:'file3',folder:'diagrams',filename:'email-to-patient.svg',encoding:'utf8'},function(res){
-                    if(res.result=='403') $('#dirgram__ID').html("No permissions");
+                    if(res.result=='403') $('#dirgram__ID').html("No permissions.");
                     else $('#dirgram__ID').html(res.result);
                 })
             })
@@ -28,7 +28,7 @@
         }
         #dirgram__ID{
             min-width:1000px;
-            padding:50px 300px;
+            padding:10px 30px;
         }
         @media screen and (max-width: 1200px) {
             #dirgram__ID{
