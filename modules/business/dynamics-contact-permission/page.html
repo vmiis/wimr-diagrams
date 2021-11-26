@@ -1,0 +1,40 @@
+<div id=D__ID>
+    <div id=panel__ID>
+        <div id=dirgram__ID>
+            <!--Vm Include:__CURRENT_PATH__clinic-automation.svg-->
+        </div>
+    </div>
+    <style>
+    </style>
+    <script>
+        function F__ID(){
+            //--------------------------------------------------------
+            $('#panel__ID').css('min-height',$vm.min_height);
+            //--------------------------------------------------------
+            $('#D__ID').on('load',function(){
+                $vm.request({cmd:'file3',folder:'diagrams',filename:'permissions.svg',encoding:'utf8'},function(res){
+                    if(res.result=='403') $('#dirgram__ID').html("No permissions.");
+                    else $('#dirgram__ID').html(res.result);
+                    $('#dirgram__ID svg').removeAttr("content");
+                    $('#dirgram__ID svg').removeAttr("width");
+                    $('#dirgram__ID svg').removeAttr("height");
+                })
+            })
+        }
+    </script>
+    <style>
+        #D__ID{
+            height:100%;
+            background-color: #fff;
+        }
+        #dirgram__ID{
+            min-width:1000px;
+            padding:10px 30px;
+        }
+        @media screen and (max-width: 1200px) {
+            #dirgram__ID{
+                padding:10px 10px;
+            }
+        }
+    </style>
+</div>
