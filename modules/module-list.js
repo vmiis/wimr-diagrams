@@ -10,4 +10,7 @@
     m[p+"email-to-patient"]={url:H+"/business/email-to-patient/page.html",prefix:p,router:1};
     m[p+"clinic-email-automation"]={url:H+"/business/clinic-email-automation/page.html",prefix:p,router:1};
     m[p+"dynamics-contact-permission"]={url:H+"/business/dynamics-contact-permission/page.html",prefix:p,router:1};
+    m[p+"sleep_technician_roster"]={url:H+"/business/sleep_technician_roster/page.html",prefix:p,router:1};
+    m[p+"rat"]={url:H+"/business/rat/page.html",prefix:p,router:1};
+    m[p+"printer"]={url:H+"/business/printer_locations/page.html",prefix:p,router:1};
 })();
